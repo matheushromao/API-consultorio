@@ -6,8 +6,8 @@ const port: number = 3000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    console.log("Hello world!");
+app.get("/", (req: Request, res: Response) => {
+    console.log("Bem vindo ao consultório!");
 })
 
 app.listen(port, () => {
