@@ -7,6 +7,7 @@ const port: number = 3000;
 app.use(express.json());
 
 type User = {
+    numId: number;
     cpf: number;
     name: string;
     occupacion: string;
@@ -21,16 +22,19 @@ type Consultation = {
 
 const users: User[] = [
     {
+        numId: 1,
         cpf: 12290389312,
         name: "Matheus",
         occupacion: "Doctor"
     },
     {
+        numId: 2,
         cpf: 12365498700,
         name: "Carlos",
         occupacion: "Secretary"
     },
     {
+        numId: 3,
         cpf: 76553412322,
         name: "Olmar",
         occupacion: "Patient"
@@ -48,12 +52,26 @@ const queries: Consultation[] = [
 
 app.get("/", (req: Request, res: Response) => {
     console.log("Bem vindo ao consultório!");
-})
+});
 
 app.get("/users", (req: Request, res: Response) => {
     res.json(users);
-})
+});
+
+app.get("/users/:numId", (req: Request, res: Response) => {
+    const userId: number = parseInt(req.params.numId);
+
+    if (isNaN(userId) || userId <= 0){
+    res.status(404).json("Id não encontrado, digite outro!");
+    }
+    
+    const userFound: User | undefined = users.find(user => user.numId == userId);
+    if (!userFound){
+        res.status(404).json("Usuário não encontrado, tente novamente!")
+    }
+    res.json(userFound);
+});
 
 app.listen(port, () => {
     console.log(`A API está rodando na ${port}`);
-})
+});
