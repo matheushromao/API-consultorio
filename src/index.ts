@@ -9,35 +9,42 @@ app.use(express.json());
 type User = {
     cpf: number;
     name: string;
-    ocupacion: string;
+    occupacion: string;
 }
 
 type Consultation = {
     id: number;
     namePacient: string;
     nameDoctor: string;
-    data: number;
+    data: Date;
 }
 
 const users: User[] = [
     {
         cpf: 12290389312,
         name: "Matheus",
-        ocupacion: "Doctor"
+        occupacion: "Doctor"
     },
     {
         cpf: 12365498700,
         name: "Carlos",
-        ocupacion: "Secretary"
+        occupacion: "Secretary"
     },
     {
         cpf: 76553412322,
         name: "Olmar",
-        ocupacion: "Patient"
+        occupacion: "Patient"
     }
-]
+];
 
-
+const queries: Consultation[] = [
+    {
+        id: 1,
+        namePacient: "Olmar",
+        nameDoctor: "Matheus",
+        data: new Date("2025-09-05")
+    }
+];
 
 app.get("/", (req: Request, res: Response) => {
     console.log("Bem vindo ao consultório!");
