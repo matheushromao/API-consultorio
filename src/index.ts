@@ -51,7 +51,7 @@ const queries: Consultation[] = [
 ];
 
 app.get("/", (req: Request, res: Response) => {
-    console.log("Bem vindo ao consultório!");
+    res.send("Bem vindo ao consultório!");
 });
 
 app.get("/users", (req: Request, res: Response) => {
@@ -62,15 +62,28 @@ app.get("/users/:numId", (req: Request, res: Response) => {
     const userId: number = parseInt(req.params.numId);
 
     if (isNaN(userId) || userId <= 0){
-    res.status(404).json("Id não encontrado, digite outro!");
+    return res.status(404).json("Id não encontrado, digite outro!");
     }
     
     const userFound: User | undefined = users.find(user => user.numId == userId);
     if (!userFound){
-        res.status(404).json("Usuário não encontrado, tente novamente!")
+       return res.status(404).json("Usuário não encontrado, tente novamente!")
     }
     res.json(userFound);
 });
+
+app.post("/users", (req: Request, res: Response) => {
+    const { cpf, name, occupacion } = req.body;
+
+    const maxId: number = users.reduce((max, user) => (user.numId > max ? user.numId : max), 0)
+    const newUser: User = {
+        numId: maxId + 1, cpf, name, occupacion,  
+    };
+    users.push(newUser);
+    res.status(201).json(users);
+});
+
+
 
 app.listen(port, () => {
     console.log(`A API está rodando na ${port}`);
