@@ -104,6 +104,18 @@ app.put("/users/:numId", (req: Request, res: Response) => {
   res.json(users);
 });
 
+app.delete("/users/:numId", (req: Request, res: Response) => {
+  const userId: number = parseInt(req.params.numId);
+
+  const userIndex: number = users.findIndex((user) => user.numId === userId);
+  if (userIndex === -1) {
+    return res.status(404).json("Usuário não encontrado, tente novamente!");
+  }
+
+  users.slice(userIndex);
+  res.status(204).send();
+});
+
 app.listen(port, () => {
   console.log(`A API está rodando na ${port}`);
 });
