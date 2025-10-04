@@ -6,6 +6,12 @@ import {
   updateConsulta,
   deleteConsulta,
 } from "../controllers/consultaController";
+import { validateBody, validateParams } from "../middleware/validation";
+import {
+  createConsultaSchema,
+  updateConsultaSchema,
+  idParamSchema,
+} from "../schemas/validation";
 
 const router = Router();
 
