@@ -8,3 +8,5 @@ import {
 } from "../controllers/recepcionistaControllers";
 
 const router = Router();
+
+export default router;
