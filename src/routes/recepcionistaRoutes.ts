@@ -12,7 +12,6 @@ import {
   updateRecepcionistaSchema,
   idParamSchema,
 } from "../schemas/validation";
-import routes from ".";
 
 const router = Router();
 /**
