@@ -5,7 +5,7 @@ import {
   getRecepcionistaById,
   updateRecepcionista,
   deleteRecepcionista,
-} from "../controllers/recepcionistaControllers";
+} from "../controllers/recepcionistaController";
 import { validateBody, validateParams } from "../middleware/validation";
 import {
   createRecepcionistaSchema,

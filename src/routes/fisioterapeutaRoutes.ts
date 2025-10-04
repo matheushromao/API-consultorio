@@ -1,7 +1,7 @@
 import { Router } from "express";
 import {
   createFisioterapeuta,
-  getAllFisioterapeuta,
+  getAllFisioterapeutas,
   getFisioterapeutaById,
   updateFisioterapeuta,
   deleteFisioterapeuta,
@@ -73,7 +73,7 @@ router.post(
  *       500:
  *         description: Erro interno do servidor
  */
-router.get("/fisioterapeutas", getAllFisioterapeuta);
+router.get("/fisioterapeutas", getAllFisioterapeutas);
 
 /**
  * @swagger
