@@ -5,7 +5,7 @@ import {
   getPacienteById,
   updatePaciente,
   deletePaciente,
-} from "../controllers/pacienteControllers";
+} from "../controllers/pacienteController";
 import { validateBody, validateParams } from "../middleware/validation";
 import {
   createPacienteSchema,
