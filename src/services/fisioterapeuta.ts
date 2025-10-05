@@ -1,5 +1,5 @@
 import { prisma } from "../database/prisma";
-import { Fisioterapeuta } from "@prisma/client";
+import { Fisioterapeuta } from "../generated/prisma";
 
 type FisioterapeutaCreateData = Omit<
   Fisioterapeuta,

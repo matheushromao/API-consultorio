@@ -6,9 +6,9 @@
       "server": "localhost",
       "port": 5432,
       "driver": "PostgreSQL",
-      "name": "dev_consultorioFisio",
+      "name": "consultorioFisio",
       "database": "consultorioFisio",
-      "username": "dev_Theu"
+      "username": "postgres"
     }
   ]
 }

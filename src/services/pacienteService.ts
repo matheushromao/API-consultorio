@@ -1,5 +1,5 @@
 import { prisma } from "../database/prisma";
-import { Paciente } from "@prisma/client";
+import { Paciente } from "../generated/prisma";
 
 type PacienteCreateData = Omit<Paciente, "id" | "createdAt" | "updatedAt">;
 type PacienteUpdateData = Partial<PacienteCreateData>;

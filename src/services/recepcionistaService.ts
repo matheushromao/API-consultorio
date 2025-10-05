@@ -1,5 +1,5 @@
 import { prisma } from "../database/prisma";
-import { Recepcionista } from "@prisma/client";
+import { Recepcionista } from "../generated/prisma";
 import bcrypt from "bcryptjs";
 
 type RecepcionistaCreateData = Omit<
