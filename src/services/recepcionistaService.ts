@@ -71,3 +71,14 @@ export const update = async (
 export const remove = async (id: number): Promise<Recepcionista> => {
   return prisma.recepcionista.delete({ where: { id } });
 };
+export function updateRecepcionista(arg0: number, body: any) {
+  throw new Error("Function not implemented.");
+}
+
+export function createRecepcionista(body: any) {
+  throw new Error("Function not implemented.");
+}
+
+export function deleteRecepcionista(arg0: number) {
+  throw new Error("Function not implemented.");
+}
