@@ -1,4 +1,4 @@
-import swaggerJsdoc from "swagger-jsdoc";
+import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import { Express } from "express";
 
@@ -13,14 +13,15 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3333",
+        url: "http://localhost:3000",
+        description: "Servidor de Desenvolvimento",
       },
     ],
   },
   apis: ["./dist/src/routes/*.js"],
 };
 
-const specs = swaggerJsdoc(options);
+const specs = swaggerJSDoc(options);
 
 export const setupSwagger = (app: Express) => {
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
