@@ -6,8 +6,8 @@ import "dotenv/config";
 const app = express();
 
 app.use(express.json());
-setupSwagger(app);
 app.use("", routes);
+setupSwagger(app);
 
 const PORT = process.env.PORT || 3000;
 
