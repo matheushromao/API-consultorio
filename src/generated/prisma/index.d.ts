@@ -4758,7 +4758,7 @@ export namespace Prisma {
     pacienteId?: boolean
     fisioterapeutaId?: boolean
     paciente?: boolean | PacienteDefaultArgs<ExtArgs>
-    medico?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
+    fisioterapeuta?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["consulta"]>
 
   export type ConsultaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4770,7 +4770,7 @@ export namespace Prisma {
     pacienteId?: boolean
     fisioterapeutaId?: boolean
     paciente?: boolean | PacienteDefaultArgs<ExtArgs>
-    medico?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
+    fisioterapeuta?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["consulta"]>
 
   export type ConsultaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4782,7 +4782,7 @@ export namespace Prisma {
     pacienteId?: boolean
     fisioterapeutaId?: boolean
     paciente?: boolean | PacienteDefaultArgs<ExtArgs>
-    medico?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
+    fisioterapeuta?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["consulta"]>
 
   export type ConsultaSelectScalar = {
@@ -4798,22 +4798,22 @@ export namespace Prisma {
   export type ConsultaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dataHora" | "motivo" | "createdAt" | "updatedAt" | "pacienteId" | "fisioterapeutaId", ExtArgs["result"]["consulta"]>
   export type ConsultaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     paciente?: boolean | PacienteDefaultArgs<ExtArgs>
-    medico?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
+    fisioterapeuta?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
   }
   export type ConsultaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     paciente?: boolean | PacienteDefaultArgs<ExtArgs>
-    medico?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
+    fisioterapeuta?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
   }
   export type ConsultaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     paciente?: boolean | PacienteDefaultArgs<ExtArgs>
-    medico?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
+    fisioterapeuta?: boolean | FisioterapeutaDefaultArgs<ExtArgs>
   }
 
   export type $ConsultaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Consulta"
     objects: {
       paciente: Prisma.$PacientePayload<ExtArgs>
-      medico: Prisma.$FisioterapeutaPayload<ExtArgs>
+      fisioterapeuta: Prisma.$FisioterapeutaPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -5218,7 +5218,7 @@ export namespace Prisma {
   export interface Prisma__ConsultaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     paciente<T extends PacienteDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PacienteDefaultArgs<ExtArgs>>): Prisma__PacienteClient<$Result.GetResult<Prisma.$PacientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    medico<T extends FisioterapeutaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FisioterapeutaDefaultArgs<ExtArgs>>): Prisma__FisioterapeutaClient<$Result.GetResult<Prisma.$FisioterapeutaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    fisioterapeuta<T extends FisioterapeutaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FisioterapeutaDefaultArgs<ExtArgs>>): Prisma__FisioterapeutaClient<$Result.GetResult<Prisma.$FisioterapeutaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6045,7 +6045,7 @@ export namespace Prisma {
     pacienteId?: IntFilter<"Consulta"> | number
     fisioterapeutaId?: IntFilter<"Consulta"> | number
     paciente?: XOR<PacienteScalarRelationFilter, PacienteWhereInput>
-    medico?: XOR<FisioterapeutaScalarRelationFilter, FisioterapeutaWhereInput>
+    fisioterapeuta?: XOR<FisioterapeutaScalarRelationFilter, FisioterapeutaWhereInput>
   }
 
   export type ConsultaOrderByWithRelationInput = {
@@ -6057,7 +6057,7 @@ export namespace Prisma {
     pacienteId?: SortOrder
     fisioterapeutaId?: SortOrder
     paciente?: PacienteOrderByWithRelationInput
-    medico?: FisioterapeutaOrderByWithRelationInput
+    fisioterapeuta?: FisioterapeutaOrderByWithRelationInput
   }
 
   export type ConsultaWhereUniqueInput = Prisma.AtLeast<{
@@ -6072,7 +6072,7 @@ export namespace Prisma {
     pacienteId?: IntFilter<"Consulta"> | number
     fisioterapeutaId?: IntFilter<"Consulta"> | number
     paciente?: XOR<PacienteScalarRelationFilter, PacienteWhereInput>
-    medico?: XOR<FisioterapeutaScalarRelationFilter, FisioterapeutaWhereInput>
+    fisioterapeuta?: XOR<FisioterapeutaScalarRelationFilter, FisioterapeutaWhereInput>
   }, "id">
 
   export type ConsultaOrderByWithAggregationInput = {
@@ -6256,7 +6256,7 @@ export namespace Prisma {
     especialidade: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    consultas?: ConsultaCreateNestedManyWithoutMedicoInput
+    consultas?: ConsultaCreateNestedManyWithoutFisioterapeutaInput
   }
 
   export type FisioterapeutaUncheckedCreateInput = {
@@ -6268,7 +6268,7 @@ export namespace Prisma {
     especialidade: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    consultas?: ConsultaUncheckedCreateNestedManyWithoutMedicoInput
+    consultas?: ConsultaUncheckedCreateNestedManyWithoutFisioterapeutaInput
   }
 
   export type FisioterapeutaUpdateInput = {
@@ -6279,7 +6279,7 @@ export namespace Prisma {
     especialidade?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    consultas?: ConsultaUpdateManyWithoutMedicoNestedInput
+    consultas?: ConsultaUpdateManyWithoutFisioterapeutaNestedInput
   }
 
   export type FisioterapeutaUncheckedUpdateInput = {
@@ -6291,7 +6291,7 @@ export namespace Prisma {
     especialidade?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    consultas?: ConsultaUncheckedUpdateManyWithoutMedicoNestedInput
+    consultas?: ConsultaUncheckedUpdateManyWithoutFisioterapeutaNestedInput
   }
 
   export type FisioterapeutaCreateManyInput = {
@@ -6332,7 +6332,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     paciente: PacienteCreateNestedOneWithoutConsultasInput
-    medico: FisioterapeutaCreateNestedOneWithoutConsultasInput
+    fisioterapeuta: FisioterapeutaCreateNestedOneWithoutConsultasInput
   }
 
   export type ConsultaUncheckedCreateInput = {
@@ -6351,7 +6351,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paciente?: PacienteUpdateOneRequiredWithoutConsultasNestedInput
-    medico?: FisioterapeutaUpdateOneRequiredWithoutConsultasNestedInput
+    fisioterapeuta?: FisioterapeutaUpdateOneRequiredWithoutConsultasNestedInput
   }
 
   export type ConsultaUncheckedUpdateInput = {
@@ -6758,45 +6758,45 @@ export namespace Prisma {
     deleteMany?: ConsultaScalarWhereInput | ConsultaScalarWhereInput[]
   }
 
-  export type ConsultaCreateNestedManyWithoutMedicoInput = {
-    create?: XOR<ConsultaCreateWithoutMedicoInput, ConsultaUncheckedCreateWithoutMedicoInput> | ConsultaCreateWithoutMedicoInput[] | ConsultaUncheckedCreateWithoutMedicoInput[]
-    connectOrCreate?: ConsultaCreateOrConnectWithoutMedicoInput | ConsultaCreateOrConnectWithoutMedicoInput[]
-    createMany?: ConsultaCreateManyMedicoInputEnvelope
+  export type ConsultaCreateNestedManyWithoutFisioterapeutaInput = {
+    create?: XOR<ConsultaCreateWithoutFisioterapeutaInput, ConsultaUncheckedCreateWithoutFisioterapeutaInput> | ConsultaCreateWithoutFisioterapeutaInput[] | ConsultaUncheckedCreateWithoutFisioterapeutaInput[]
+    connectOrCreate?: ConsultaCreateOrConnectWithoutFisioterapeutaInput | ConsultaCreateOrConnectWithoutFisioterapeutaInput[]
+    createMany?: ConsultaCreateManyFisioterapeutaInputEnvelope
     connect?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
   }
 
-  export type ConsultaUncheckedCreateNestedManyWithoutMedicoInput = {
-    create?: XOR<ConsultaCreateWithoutMedicoInput, ConsultaUncheckedCreateWithoutMedicoInput> | ConsultaCreateWithoutMedicoInput[] | ConsultaUncheckedCreateWithoutMedicoInput[]
-    connectOrCreate?: ConsultaCreateOrConnectWithoutMedicoInput | ConsultaCreateOrConnectWithoutMedicoInput[]
-    createMany?: ConsultaCreateManyMedicoInputEnvelope
+  export type ConsultaUncheckedCreateNestedManyWithoutFisioterapeutaInput = {
+    create?: XOR<ConsultaCreateWithoutFisioterapeutaInput, ConsultaUncheckedCreateWithoutFisioterapeutaInput> | ConsultaCreateWithoutFisioterapeutaInput[] | ConsultaUncheckedCreateWithoutFisioterapeutaInput[]
+    connectOrCreate?: ConsultaCreateOrConnectWithoutFisioterapeutaInput | ConsultaCreateOrConnectWithoutFisioterapeutaInput[]
+    createMany?: ConsultaCreateManyFisioterapeutaInputEnvelope
     connect?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
   }
 
-  export type ConsultaUpdateManyWithoutMedicoNestedInput = {
-    create?: XOR<ConsultaCreateWithoutMedicoInput, ConsultaUncheckedCreateWithoutMedicoInput> | ConsultaCreateWithoutMedicoInput[] | ConsultaUncheckedCreateWithoutMedicoInput[]
-    connectOrCreate?: ConsultaCreateOrConnectWithoutMedicoInput | ConsultaCreateOrConnectWithoutMedicoInput[]
-    upsert?: ConsultaUpsertWithWhereUniqueWithoutMedicoInput | ConsultaUpsertWithWhereUniqueWithoutMedicoInput[]
-    createMany?: ConsultaCreateManyMedicoInputEnvelope
+  export type ConsultaUpdateManyWithoutFisioterapeutaNestedInput = {
+    create?: XOR<ConsultaCreateWithoutFisioterapeutaInput, ConsultaUncheckedCreateWithoutFisioterapeutaInput> | ConsultaCreateWithoutFisioterapeutaInput[] | ConsultaUncheckedCreateWithoutFisioterapeutaInput[]
+    connectOrCreate?: ConsultaCreateOrConnectWithoutFisioterapeutaInput | ConsultaCreateOrConnectWithoutFisioterapeutaInput[]
+    upsert?: ConsultaUpsertWithWhereUniqueWithoutFisioterapeutaInput | ConsultaUpsertWithWhereUniqueWithoutFisioterapeutaInput[]
+    createMany?: ConsultaCreateManyFisioterapeutaInputEnvelope
     set?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
     disconnect?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
     delete?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
     connect?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
-    update?: ConsultaUpdateWithWhereUniqueWithoutMedicoInput | ConsultaUpdateWithWhereUniqueWithoutMedicoInput[]
-    updateMany?: ConsultaUpdateManyWithWhereWithoutMedicoInput | ConsultaUpdateManyWithWhereWithoutMedicoInput[]
+    update?: ConsultaUpdateWithWhereUniqueWithoutFisioterapeutaInput | ConsultaUpdateWithWhereUniqueWithoutFisioterapeutaInput[]
+    updateMany?: ConsultaUpdateManyWithWhereWithoutFisioterapeutaInput | ConsultaUpdateManyWithWhereWithoutFisioterapeutaInput[]
     deleteMany?: ConsultaScalarWhereInput | ConsultaScalarWhereInput[]
   }
 
-  export type ConsultaUncheckedUpdateManyWithoutMedicoNestedInput = {
-    create?: XOR<ConsultaCreateWithoutMedicoInput, ConsultaUncheckedCreateWithoutMedicoInput> | ConsultaCreateWithoutMedicoInput[] | ConsultaUncheckedCreateWithoutMedicoInput[]
-    connectOrCreate?: ConsultaCreateOrConnectWithoutMedicoInput | ConsultaCreateOrConnectWithoutMedicoInput[]
-    upsert?: ConsultaUpsertWithWhereUniqueWithoutMedicoInput | ConsultaUpsertWithWhereUniqueWithoutMedicoInput[]
-    createMany?: ConsultaCreateManyMedicoInputEnvelope
+  export type ConsultaUncheckedUpdateManyWithoutFisioterapeutaNestedInput = {
+    create?: XOR<ConsultaCreateWithoutFisioterapeutaInput, ConsultaUncheckedCreateWithoutFisioterapeutaInput> | ConsultaCreateWithoutFisioterapeutaInput[] | ConsultaUncheckedCreateWithoutFisioterapeutaInput[]
+    connectOrCreate?: ConsultaCreateOrConnectWithoutFisioterapeutaInput | ConsultaCreateOrConnectWithoutFisioterapeutaInput[]
+    upsert?: ConsultaUpsertWithWhereUniqueWithoutFisioterapeutaInput | ConsultaUpsertWithWhereUniqueWithoutFisioterapeutaInput[]
+    createMany?: ConsultaCreateManyFisioterapeutaInputEnvelope
     set?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
     disconnect?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
     delete?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
     connect?: ConsultaWhereUniqueInput | ConsultaWhereUniqueInput[]
-    update?: ConsultaUpdateWithWhereUniqueWithoutMedicoInput | ConsultaUpdateWithWhereUniqueWithoutMedicoInput[]
-    updateMany?: ConsultaUpdateManyWithWhereWithoutMedicoInput | ConsultaUpdateManyWithWhereWithoutMedicoInput[]
+    update?: ConsultaUpdateWithWhereUniqueWithoutFisioterapeutaInput | ConsultaUpdateWithWhereUniqueWithoutFisioterapeutaInput[]
+    updateMany?: ConsultaUpdateManyWithWhereWithoutFisioterapeutaInput | ConsultaUpdateManyWithWhereWithoutFisioterapeutaInput[]
     deleteMany?: ConsultaScalarWhereInput | ConsultaScalarWhereInput[]
   }
 
@@ -6969,7 +6969,7 @@ export namespace Prisma {
     motivo?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    medico: FisioterapeutaCreateNestedOneWithoutConsultasInput
+    fisioterapeuta: FisioterapeutaCreateNestedOneWithoutConsultasInput
   }
 
   export type ConsultaUncheckedCreateWithoutPacienteInput = {
@@ -7020,7 +7020,7 @@ export namespace Prisma {
     fisioterapeutaId?: IntFilter<"Consulta"> | number
   }
 
-  export type ConsultaCreateWithoutMedicoInput = {
+  export type ConsultaCreateWithoutFisioterapeutaInput = {
     dataHora: Date | string
     motivo?: string | null
     createdAt?: Date | string
@@ -7028,7 +7028,7 @@ export namespace Prisma {
     paciente: PacienteCreateNestedOneWithoutConsultasInput
   }
 
-  export type ConsultaUncheckedCreateWithoutMedicoInput = {
+  export type ConsultaUncheckedCreateWithoutFisioterapeutaInput = {
     id?: number
     dataHora: Date | string
     motivo?: string | null
@@ -7037,30 +7037,30 @@ export namespace Prisma {
     pacienteId: number
   }
 
-  export type ConsultaCreateOrConnectWithoutMedicoInput = {
+  export type ConsultaCreateOrConnectWithoutFisioterapeutaInput = {
     where: ConsultaWhereUniqueInput
-    create: XOR<ConsultaCreateWithoutMedicoInput, ConsultaUncheckedCreateWithoutMedicoInput>
+    create: XOR<ConsultaCreateWithoutFisioterapeutaInput, ConsultaUncheckedCreateWithoutFisioterapeutaInput>
   }
 
-  export type ConsultaCreateManyMedicoInputEnvelope = {
-    data: ConsultaCreateManyMedicoInput | ConsultaCreateManyMedicoInput[]
+  export type ConsultaCreateManyFisioterapeutaInputEnvelope = {
+    data: ConsultaCreateManyFisioterapeutaInput | ConsultaCreateManyFisioterapeutaInput[]
     skipDuplicates?: boolean
   }
 
-  export type ConsultaUpsertWithWhereUniqueWithoutMedicoInput = {
+  export type ConsultaUpsertWithWhereUniqueWithoutFisioterapeutaInput = {
     where: ConsultaWhereUniqueInput
-    update: XOR<ConsultaUpdateWithoutMedicoInput, ConsultaUncheckedUpdateWithoutMedicoInput>
-    create: XOR<ConsultaCreateWithoutMedicoInput, ConsultaUncheckedCreateWithoutMedicoInput>
+    update: XOR<ConsultaUpdateWithoutFisioterapeutaInput, ConsultaUncheckedUpdateWithoutFisioterapeutaInput>
+    create: XOR<ConsultaCreateWithoutFisioterapeutaInput, ConsultaUncheckedCreateWithoutFisioterapeutaInput>
   }
 
-  export type ConsultaUpdateWithWhereUniqueWithoutMedicoInput = {
+  export type ConsultaUpdateWithWhereUniqueWithoutFisioterapeutaInput = {
     where: ConsultaWhereUniqueInput
-    data: XOR<ConsultaUpdateWithoutMedicoInput, ConsultaUncheckedUpdateWithoutMedicoInput>
+    data: XOR<ConsultaUpdateWithoutFisioterapeutaInput, ConsultaUncheckedUpdateWithoutFisioterapeutaInput>
   }
 
-  export type ConsultaUpdateManyWithWhereWithoutMedicoInput = {
+  export type ConsultaUpdateManyWithWhereWithoutFisioterapeutaInput = {
     where: ConsultaScalarWhereInput
-    data: XOR<ConsultaUpdateManyMutationInput, ConsultaUncheckedUpdateManyWithoutMedicoInput>
+    data: XOR<ConsultaUpdateManyMutationInput, ConsultaUncheckedUpdateManyWithoutFisioterapeutaInput>
   }
 
   export type PacienteCreateWithoutConsultasInput = {
@@ -7193,7 +7193,7 @@ export namespace Prisma {
     motivo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    medico?: FisioterapeutaUpdateOneRequiredWithoutConsultasNestedInput
+    fisioterapeuta?: FisioterapeutaUpdateOneRequiredWithoutConsultasNestedInput
   }
 
   export type ConsultaUncheckedUpdateWithoutPacienteInput = {
@@ -7214,7 +7214,7 @@ export namespace Prisma {
     fisioterapeutaId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ConsultaCreateManyMedicoInput = {
+  export type ConsultaCreateManyFisioterapeutaInput = {
     id?: number
     dataHora: Date | string
     motivo?: string | null
@@ -7223,7 +7223,7 @@ export namespace Prisma {
     pacienteId: number
   }
 
-  export type ConsultaUpdateWithoutMedicoInput = {
+  export type ConsultaUpdateWithoutFisioterapeutaInput = {
     dataHora?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7231,7 +7231,7 @@ export namespace Prisma {
     paciente?: PacienteUpdateOneRequiredWithoutConsultasNestedInput
   }
 
-  export type ConsultaUncheckedUpdateWithoutMedicoInput = {
+  export type ConsultaUncheckedUpdateWithoutFisioterapeutaInput = {
     id?: IntFieldUpdateOperationsInput | number
     dataHora?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7240,7 +7240,7 @@ export namespace Prisma {
     pacienteId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ConsultaUncheckedUpdateManyWithoutMedicoInput = {
+  export type ConsultaUncheckedUpdateManyWithoutFisioterapeutaInput = {
     id?: IntFieldUpdateOperationsInput | number
     dataHora?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: NullableStringFieldUpdateOperationsInput | string | null

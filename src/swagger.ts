@@ -17,11 +17,11 @@ const options = {
       },
     ],
   },
-  apis: ["./src/routes/*.ts"],
+  apis: ["./dist/src/routes/*.js"],
 };
 
 const specs = swaggerJsdoc(options);
 
 export const setupSwagger = (app: Express) => {
-  app.use("/api-fisio", swaggerUi.serve, swaggerUi.setup(specs));
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 };

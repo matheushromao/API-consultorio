@@ -58,7 +58,7 @@ model Consulta {
   fisioterapeutaId   Int
 
   paciente Paciente @relation(fields: [pacienteId], references: [id])
-  medico   Fisioterapeuta   @relation(fields: [fisioterapeutaId], references: [id])
+  fisioterapeuta   Fisioterapeuta   @relation(fields: [fisioterapeutaId], references: [id])
 
   @@map("consultas") 
 }
