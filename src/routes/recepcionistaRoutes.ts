@@ -24,7 +24,7 @@ const router = Router();
 /**
  * @swagger
  * /recepcionistas:
- * *   post:
+ *   post:
  *     summary: criar novo recepcionista
  *     tags: [Recepcionistas]
  *     requestBody:
@@ -62,13 +62,13 @@ router.post(
 
 /**
  * @swagger
- * /secretarios:
+ * /recepcionistas:
  *   get:
- *     summary: Retorna todos os secretários cadastradpos no banco
- *     tags: [Secretarios]
+ *     summary: Retorna todos os recepcionistas cadastradpos no banco
+ *     tags: [Recepcionistas]
  *     responses:
  *       200:
- *         description: Lista de secretários
+ *         description: Lista de recepcionistas
  *       500:
  *         description: Erro interno do servidor
  */
@@ -147,7 +147,7 @@ router.put(
  * /recepcionistas/{id}:
  *   delete:
  *     summary: Deletar um recepcionista pelo ID
- *     tags: [Recepcionista]
+ *     tags: [Recepcionistas]
  *     parameters:
  *       - in: path
  *         name: id

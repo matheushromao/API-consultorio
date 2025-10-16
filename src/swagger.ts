@@ -13,12 +13,11 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000",
-        description: "Servidor de Desenvolvimento",
+        url: "http://localhost:3333",
       },
     ],
   },
-  apis: [".src/routes/*.ts"],
+  apis: ["./src/routes/*.ts"],
 };
 
 const specs = swaggerJSDoc(options);

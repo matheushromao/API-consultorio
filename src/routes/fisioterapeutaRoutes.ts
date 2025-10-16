@@ -24,7 +24,7 @@ const router = Router();
 
 /**
  * @swagger
- * /Fisioterapeutas:
+ * /fisioterapeutas:
  *   post:
  *     summary: Cria um novo Fisioterapeuta
  *     tags: [Fisioterapeutas]
@@ -63,7 +63,7 @@ router.post(
 
 /**
  * @swagger
- * /medicos:
+ * /fisioterapeutas:
  *   get:
  *     summary: Retorna todos os fisioterapeutas cadastrados no banco
  *     tags: [Fisioterapeutas]
@@ -77,7 +77,7 @@ router.get("/fisioterapeutas", getAllFisioterapeutas);
 
 /**
  * @swagger
- * /medicos/{id}:
+ * /fisioterapeutas/{id}:
  *   get:
  *     summary: Retornar fisioterapeuta pelo ID
  *     tags: [Fisioterapeutas]
@@ -103,7 +103,7 @@ router.get(
 
 /**
  * @swagger
- * /medicos/{id}:
+ * /fisioterapeutas/{id}:
  *   put:
  *     summary: Atualiza um Fisioterapeuta
  *     tags: [Fisioterapeutas]
@@ -147,7 +147,7 @@ router.put(
 
 /**
  * @swagger
- * /medicos/{id}:
+ * /fisioterapeutas/{id}:
  *   delete:
  *     summary: Deletar um Fisioterapeuta
  *     tags: [Fisioterapeutas]
