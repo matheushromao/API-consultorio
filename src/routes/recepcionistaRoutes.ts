@@ -72,11 +72,11 @@ router.post(
  *       500:
  *         description: Erro interno do servidor
  */
-router.get("/secretarios", getAllRecepcionistas);
+router.get("/recepcionistas", getAllRecepcionistas);
 
 /**
  * @swagger
- * /recepcionista/{id}:
+ * /recepcionistas/{id}:
  *   get:
  *     summary: Retorna recepcionista pelo ID
  *     tags: [Recepcionistas]
