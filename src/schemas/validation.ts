@@ -19,10 +19,6 @@ export const createRecepcionistaSchema = z.object({
     .string()
     .min(11, "Telefone deve ter no mínimo 11 dígitos")
     .optional(),
-  cpf: z
-    .string()
-    .length(11, "CPF deve ter exatamente 11 dígitos")
-    .regex(/^\d+$/, "CPF deve conter apenas números"),
 });
 
 export const updateRecepcionistaSchema = createRecepcionistaSchema.partial();

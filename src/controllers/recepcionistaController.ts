@@ -3,9 +3,7 @@ import * as recepcionistaService from "../services/recepcionistaService";
 
 export const createRecepcionista = async (req: Request, res: Response) => {
   try {
-    const recepcionista = await recepcionistaService.createRecepcionista(
-      req.body
-    );
+    const recepcionista = await recepcionistaService.create(req.body);
     return res.status(201).json(recepcionista);
   } catch (error: any) {
     if (error.code === "P2002") {
@@ -41,7 +39,7 @@ export const getRecepcionistaById = async (req: Request, res: Response) => {
 
 export const updateRecepcionista = async (req: Request, res: Response) => {
   try {
-    const recepcionista = await recepcionistaService.updateRecepcionista(
+    const recepcionista = await recepcionistaService.update(
       Number(req.params.id),
       req.body
     );
@@ -55,7 +53,7 @@ export const updateRecepcionista = async (req: Request, res: Response) => {
 
 export const deleteRecepcionista = async (req: Request, res: Response) => {
   try {
-    await recepcionistaService.deleteRecepcionista(Number(req.params.id));
+    await recepcionistaService.remove(Number(req.params.id));
     return res
       .status(200)
       .json({ message: "Recepcionista deletado com sucesso" });

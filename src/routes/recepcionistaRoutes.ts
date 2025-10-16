@@ -95,7 +95,7 @@ router.get("/secretarios", getAllRecepcionistas);
  *         description: Erro interno do servidor
  */
 router.get(
-  "/recepcionista/:id",
+  "/recepcionistas/:id",
   validateParams(idParamSchema),
   getRecepcionistaById
 );
@@ -136,7 +136,7 @@ router.get(
  *         description: Erro interno do servidor
  */
 router.put(
-  "/recepcionista/:id",
+  "/recepcionistas/:id",
   validateParams(idParamSchema),
   validateBody(updateRecepcionistaSchema),
   updateRecepcionista
@@ -163,7 +163,7 @@ router.put(
  *         description: Erro interno do servidor
  */
 router.delete(
-  "/recepcionista/:id",
+  "/recepcionistas/:id",
   validateParams(idParamSchema),
   deleteRecepcionista
 );
