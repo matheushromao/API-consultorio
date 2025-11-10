@@ -33,10 +33,6 @@ export const createFisioterapeutaSchema = z.object({
     .string()
     .email({ message: "Email inválido" })
     .max(100, "Email deve ter no máximo 100 caracteres"),
-  senha: z
-    .string()
-    .min(6, "Senha deve ter no mínimo 6 caracteres")
-    .max(20, "Senha deve ter no máximo 20 caracteres"),
   telefone: z
     .string()
     .min(11, "Telefone deve ter no mínimo 11 dígitos")

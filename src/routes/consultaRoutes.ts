@@ -37,7 +37,7 @@ const router = Router();
  *             required:
  *               - dataHora
  *               - pacienteId
- *               - medicoId
+ *               - fisioterapeutaId
  *             properties:
  *               dataHora:
  *                 type: string
