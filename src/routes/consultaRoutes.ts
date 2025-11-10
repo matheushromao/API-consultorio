@@ -44,7 +44,7 @@ const router = Router();
  *                 format: date-time
  *               pacienteId:
  *                 type: integer
- *               medicoId:
+ *               fisioterapeutaId:
  *                 type: integer
  *     responses:
  *       201:

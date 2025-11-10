@@ -106,7 +106,7 @@ export const createConsultaSchema = z.object({
     .number()
     .int("ID do paciente deve ser um número inteiro")
     .positive("ID do paciente deve ser positivo"),
-  medicoId: z
+  fisioterapeutaId: z
     .number()
     .int("ID do médico deve ser um número inteiro")
     .positive("ID do médico deve ser positivo"),
