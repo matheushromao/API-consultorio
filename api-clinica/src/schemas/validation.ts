@@ -21,6 +21,16 @@ export const createRecepcionistaSchema = z.object({
     .optional(),
 });
 
+export const loginRecepcionistaSchema = z.object({
+  email: z
+    .email({ message: "Email inválido" })
+    .max(100, "Email deve ter no máximo 100 caracteres"),
+  senha: z
+    .string()
+    .min(6, "Senha deve ter no mínimo 6 caracteres")
+    .max(20, "Senha deve ter no máximo 20 caracteres"),
+});
+
 export const updateRecepcionistaSchema = createRecepcionistaSchema.partial();
 
 // Schema para fisioterapeuta

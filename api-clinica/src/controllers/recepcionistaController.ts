@@ -63,3 +63,16 @@ export const deleteRecepcionista = async (req: Request, res: Response) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+export const getRecepcionistaByLogin = async (req: Request, res: Response) => {
+  try {
+    const { email, senha } = req.body;
+    const recepcionista = await recepcionistaService.getByLogin(email, senha);
+    if (!recepcionista) {
+      return res.status(404).json({ message: "Credenciais inválidas" });
+    }
+    return res.json(recepcionista);
+  } catch (error: any) {
+    return res.status(500).json({ message: error.message });
+  }
+};

@@ -71,3 +71,12 @@ export const update = async (
 export const remove = async (id: number): Promise<Recepcionista> => {
   return prisma.recepcionista.delete({ where: { id } });
 };
+
+export const getByLogin = async (
+  email: string,
+  senha: string
+): Promise<Omit<Recepcionista, "senha"> | null> => {
+  return prisma.recepcionista.findFirst({
+    where: { email: email, senha: senha },
+  });
+};
