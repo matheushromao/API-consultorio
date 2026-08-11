@@ -38,6 +38,7 @@ model Fisioterapeuta {
   id            Int        @id @default(autoincrement())
   nome          String
   email         String     @unique
+  senha         String
   cpf           String     @unique
   crm           String     @unique
   especialidade String

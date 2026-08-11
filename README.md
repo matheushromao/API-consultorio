@@ -17,7 +17,7 @@ Construída em **Node.js + TypeScript**, com **Express 5**, **Prisma ORM** sobre
 - [Endpoints](#endpoints)
 - [Validação e tratamento de erros](#validação-e-tratamento-de-erros)
 - [Documentação interativa](#documentação-interativa)
-- [Limitações conhecidas e roadmap](#limitações-conhecidas-e-roadmap)
+- [Pendências e roadmap](#pendências-e-roadmap)
 
 ---
 
@@ -120,7 +120,7 @@ cd API-consultorio/api-clinica
 npm install
 
 # 3. Configurar as variáveis de ambiente
-#    Crie um arquivo .env conforme a seção abaixo
+cp .env.example .env    # em seguida ajuste os valores
 
 # 4. Gerar o Prisma Client
 npx prisma generate
@@ -138,7 +138,7 @@ A API ficará disponível em `http://localhost:3333` (ou na porta definida em `P
 
 ## Variáveis de ambiente
 
-Crie um arquivo `.env` dentro de `api-clinica/`:
+Copie o arquivo `api-clinica/.env.example` para `api-clinica/.env` e ajuste os valores:
 
 ```env
 DATABASE_URL="postgresql://usuario:senha@localhost:5432/consultorio?schema=public"
@@ -150,7 +150,7 @@ PORT=3333
 | `DATABASE_URL` | Sim | String de conexão do PostgreSQL usada pelo Prisma |
 | `PORT` | Não | Porta HTTP do servidor (padrão: `3000`) |
 
-> O `.env` contém credenciais e **não deve ser versionado**. Veja [Limitações conhecidas](#limitações-conhecidas-e-roadmap).
+> O `.env` contém credenciais e **não deve ser versionado**. Veja [Pendências](#pendências-e-roadmap).
 
 ---
 
@@ -188,13 +188,15 @@ Base URL: `http://localhost:3333`
 
 | Método | Rota | Descrição |
 | --- | --- | --- |
-| `POST` | `/recepcionistas` | Cria um recepcionista (senha armazenada com hash bcrypt) |
+| `POST` | `/recepcionistas` | Cria um recepcionista |
 | `GET` | `/recepcionistas` | Lista todos os recepcionistas |
 | `GET` | `/recepcionistas/:id` | Busca por ID |
 | `PUT` | `/recepcionistas/:id` | Atualiza os dados |
 | `DELETE` | `/recepcionistas/:id` | Remove o registro |
 
-As respostas dessa entidade **nunca expõem o campo `senha`**.
+### Segurança das credenciais
+
+Recepcionistas e fisioterapeutas têm a senha armazenada com **hash bcrypt** (fator 10), tanto na criação quanto na atualização. O campo `senha` **nunca é retornado** nas respostas dessas entidades, e o login usa `bcrypt.compare` para verificar a credencial.
 
 ### Pacientes
 
@@ -306,17 +308,31 @@ A documentação é gerada a partir das anotações JSDoc nos arquivos de `src/r
 
 ---
 
-## Limitações conhecidas e roadmap
+## Pendências e roadmap
 
-Pontos identificados no estado atual do código, em ordem de prioridade:
+### Ação necessária antes de rodar
 
-- **Login não valida o hash da senha.** `recepcionistaService.getByLogin` compara a senha em texto puro diretamente com o valor armazenado no banco, que é um hash bcrypt — a autenticação nunca terá sucesso. A correção é buscar pelo email e usar `bcrypt.compare`.
-- **Ausência de JWT/sessão.** O login não emite token e nenhuma rota é protegida; todos os endpoints são públicos.
-- **Criação de fisioterapeuta inconsistente com o schema.** O `createFisioterapeutaSchema` aceita `telefone` (campo inexistente no modelo Prisma) e não exige `senha` (campo obrigatório no modelo). Alinhar schema Zod e `schema.prisma`.
-- **Senha do fisioterapeuta sem hash.** Diferente do recepcionista, o `fisioterapeutaService` persiste os dados sem aplicar bcrypt e retorna o registro completo nas consultas.
-- **Repositório sem `.gitignore`.** `node_modules/`, `dist/` e o arquivo `.env` estão versionados. Recomenda-se adicionar um `.gitignore`, remover esses caminhos do índice (`git rm -r --cached`) e **rotacionar as credenciais expostas** em `DATABASE_URL`.
-- **Sem testes automatizados.** Não há suíte de testes configurada.
-- **Sem verificação de conflito de agenda.** Nada impede o agendamento de duas consultas para o mesmo fisioterapeuta no mesmo horário.
+- **Migration pendente para `Fisioterapeuta.senha`.** O campo existe no `schema.prisma`, mas não na migration `20251005183206_init` — ou seja, a coluna ainda não existe no banco. Com o banco acessível, execute:
+
+  ```bash
+  npx prisma migrate dev --name add_senha_fisioterapeuta
+  ```
+
+  Se já houver fisioterapeutas cadastrados, o Prisma pedirá um valor padrão para a coluna obrigatória.
+
+- **Limpar o índice do Git.** O `.gitignore` foi adicionado, mas `node_modules/`, `dist/`, `src/generated/` e `.env` já estavam versionados. Para removê-los do controle de versão sem apagar os arquivos locais:
+
+  ```bash
+  git rm -r --cached api-clinica/node_modules api-clinica/dist api-clinica/src/generated api-clinica/.env
+  ```
+
+  Como a `DATABASE_URL` esteve exposta no histórico, **rotacione a senha do banco**.
+
+### Roadmap
+
+- **Autenticação com JWT.** O login valida a credencial corretamente, mas não emite token — nenhuma rota é protegida e todos os endpoints seguem públicos.
+- **Testes automatizados.** Não há suíte de testes configurada.
+- **Verificação de conflito de agenda.** Nada impede o agendamento de duas consultas para o mesmo fisioterapeuta no mesmo horário.
 
 ---
 

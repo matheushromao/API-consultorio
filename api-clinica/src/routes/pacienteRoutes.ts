@@ -37,19 +37,20 @@ const router = Router();
  *             required:
  *               - nome
  *               - email
- *               - senha
+ *               - cpf
  *               - dataNascimento
  *             properties:
  *               nome:
  *                 type: string
  *               email:
  *                 type: string
- *               senha:
+ *               cpf:
  *                 type: string
  *               telefone:
  *                 type: string
  *               dataNascimento:
  *                 type: string
+ *                 format: date
  *     responses:
  *       201:
  *         description: Paciente criado com sucesso

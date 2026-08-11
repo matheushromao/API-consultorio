@@ -7,7 +7,7 @@ type RecepcionistaCreateData = Omit<
   "id" | "createdAt" | "updatedAt"
 >;
 type RecepcionistaUpdateData = Partial<
-  Omit<Recepcionista, "id" | "createdAt" | "updatedAt" | "senha">
+  Omit<Recepcionista, "id" | "createdAt" | "updatedAt">
 >;
 
 export const create = async (
@@ -54,9 +54,12 @@ export const update = async (
   id: number,
   data: RecepcionistaUpdateData
 ): Promise<Omit<Recepcionista, "senha">> => {
+  const { senha, ...outrosCampos } = data;
   return prisma.recepcionista.update({
     where: { id },
-    data,
+    data: senha
+      ? { ...outrosCampos, senha: await bcrypt.hash(senha, 10) }
+      : outrosCampos,
     select: {
       id: true,
       nome: true,
@@ -76,7 +79,14 @@ export const getByLogin = async (
   email: string,
   senha: string
 ): Promise<Omit<Recepcionista, "senha"> | null> => {
-  return prisma.recepcionista.findFirst({
-    where: { email: email, senha: senha },
+  const recepcionista = await prisma.recepcionista.findUnique({
+    where: { email },
   });
+  if (!recepcionista) return null;
+
+  const senhaValida = await bcrypt.compare(senha, recepcionista.senha);
+  if (!senhaValida) return null;
+
+  const { senha: _senha, ...recepcionistaSemSenha } = recepcionista;
+  return recepcionistaSemSenha;
 };

@@ -3416,6 +3416,7 @@ export namespace Prisma {
     id: number | null
     nome: string | null
     email: string | null
+    senha: string | null
     cpf: string | null
     crm: string | null
     especialidade: string | null
@@ -3427,6 +3428,7 @@ export namespace Prisma {
     id: number | null
     nome: string | null
     email: string | null
+    senha: string | null
     cpf: string | null
     crm: string | null
     especialidade: string | null
@@ -3438,6 +3440,7 @@ export namespace Prisma {
     id: number
     nome: number
     email: number
+    senha: number
     cpf: number
     crm: number
     especialidade: number
@@ -3459,6 +3462,7 @@ export namespace Prisma {
     id?: true
     nome?: true
     email?: true
+    senha?: true
     cpf?: true
     crm?: true
     especialidade?: true
@@ -3470,6 +3474,7 @@ export namespace Prisma {
     id?: true
     nome?: true
     email?: true
+    senha?: true
     cpf?: true
     crm?: true
     especialidade?: true
@@ -3481,6 +3486,7 @@ export namespace Prisma {
     id?: true
     nome?: true
     email?: true
+    senha?: true
     cpf?: true
     crm?: true
     especialidade?: true
@@ -3579,6 +3585,7 @@ export namespace Prisma {
     id: number
     nome: string
     email: string
+    senha: string
     cpf: string
     crm: string
     especialidade: string
@@ -3609,6 +3616,7 @@ export namespace Prisma {
     id?: boolean
     nome?: boolean
     email?: boolean
+    senha?: boolean
     cpf?: boolean
     crm?: boolean
     especialidade?: boolean
@@ -3622,6 +3630,7 @@ export namespace Prisma {
     id?: boolean
     nome?: boolean
     email?: boolean
+    senha?: boolean
     cpf?: boolean
     crm?: boolean
     especialidade?: boolean
@@ -3633,6 +3642,7 @@ export namespace Prisma {
     id?: boolean
     nome?: boolean
     email?: boolean
+    senha?: boolean
     cpf?: boolean
     crm?: boolean
     especialidade?: boolean
@@ -3644,6 +3654,7 @@ export namespace Prisma {
     id?: boolean
     nome?: boolean
     email?: boolean
+    senha?: boolean
     cpf?: boolean
     crm?: boolean
     especialidade?: boolean
@@ -3651,7 +3662,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type FisioterapeutaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "email" | "cpf" | "crm" | "especialidade" | "createdAt" | "updatedAt", ExtArgs["result"]["fisioterapeuta"]>
+  export type FisioterapeutaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "email" | "senha" | "cpf" | "crm" | "especialidade" | "createdAt" | "updatedAt", ExtArgs["result"]["fisioterapeuta"]>
   export type FisioterapeutaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     consultas?: boolean | Fisioterapeuta$consultasArgs<ExtArgs>
     _count?: boolean | FisioterapeutaCountOutputTypeDefaultArgs<ExtArgs>
@@ -3668,6 +3679,7 @@ export namespace Prisma {
       id: number
       nome: string
       email: string
+      senha: string
       cpf: string
       crm: string
       especialidade: string
@@ -4100,6 +4112,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Fisioterapeuta", 'Int'>
     readonly nome: FieldRef<"Fisioterapeuta", 'String'>
     readonly email: FieldRef<"Fisioterapeuta", 'String'>
+    readonly senha: FieldRef<"Fisioterapeuta", 'String'>
     readonly cpf: FieldRef<"Fisioterapeuta", 'String'>
     readonly crm: FieldRef<"Fisioterapeuta", 'String'>
     readonly especialidade: FieldRef<"Fisioterapeuta", 'String'>
@@ -5714,6 +5727,7 @@ export namespace Prisma {
     id: 'id',
     nome: 'nome',
     email: 'email',
+    senha: 'senha',
     cpf: 'cpf',
     crm: 'crm',
     especialidade: 'especialidade',
@@ -5968,6 +5982,7 @@ export namespace Prisma {
     id?: IntFilter<"Fisioterapeuta"> | number
     nome?: StringFilter<"Fisioterapeuta"> | string
     email?: StringFilter<"Fisioterapeuta"> | string
+    senha?: StringFilter<"Fisioterapeuta"> | string
     cpf?: StringFilter<"Fisioterapeuta"> | string
     crm?: StringFilter<"Fisioterapeuta"> | string
     especialidade?: StringFilter<"Fisioterapeuta"> | string
@@ -5980,6 +5995,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     cpf?: SortOrder
     crm?: SortOrder
     especialidade?: SortOrder
@@ -5997,6 +6013,7 @@ export namespace Prisma {
     OR?: FisioterapeutaWhereInput[]
     NOT?: FisioterapeutaWhereInput | FisioterapeutaWhereInput[]
     nome?: StringFilter<"Fisioterapeuta"> | string
+    senha?: StringFilter<"Fisioterapeuta"> | string
     especialidade?: StringFilter<"Fisioterapeuta"> | string
     createdAt?: DateTimeFilter<"Fisioterapeuta"> | Date | string
     updatedAt?: DateTimeFilter<"Fisioterapeuta"> | Date | string
@@ -6007,6 +6024,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     cpf?: SortOrder
     crm?: SortOrder
     especialidade?: SortOrder
@@ -6026,6 +6044,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Fisioterapeuta"> | number
     nome?: StringWithAggregatesFilter<"Fisioterapeuta"> | string
     email?: StringWithAggregatesFilter<"Fisioterapeuta"> | string
+    senha?: StringWithAggregatesFilter<"Fisioterapeuta"> | string
     cpf?: StringWithAggregatesFilter<"Fisioterapeuta"> | string
     crm?: StringWithAggregatesFilter<"Fisioterapeuta"> | string
     especialidade?: StringWithAggregatesFilter<"Fisioterapeuta"> | string
@@ -6251,6 +6270,7 @@ export namespace Prisma {
   export type FisioterapeutaCreateInput = {
     nome: string
     email: string
+    senha: string
     cpf: string
     crm: string
     especialidade: string
@@ -6263,6 +6283,7 @@ export namespace Prisma {
     id?: number
     nome: string
     email: string
+    senha: string
     cpf: string
     crm: string
     especialidade: string
@@ -6274,6 +6295,7 @@ export namespace Prisma {
   export type FisioterapeutaUpdateInput = {
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     crm?: StringFieldUpdateOperationsInput | string
     especialidade?: StringFieldUpdateOperationsInput | string
@@ -6286,6 +6308,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     crm?: StringFieldUpdateOperationsInput | string
     especialidade?: StringFieldUpdateOperationsInput | string
@@ -6298,6 +6321,7 @@ export namespace Prisma {
     id?: number
     nome: string
     email: string
+    senha: string
     cpf: string
     crm: string
     especialidade: string
@@ -6308,6 +6332,7 @@ export namespace Prisma {
   export type FisioterapeutaUpdateManyMutationInput = {
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     crm?: StringFieldUpdateOperationsInput | string
     especialidade?: StringFieldUpdateOperationsInput | string
@@ -6319,6 +6344,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     crm?: StringFieldUpdateOperationsInput | string
     especialidade?: StringFieldUpdateOperationsInput | string
@@ -6607,6 +6633,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     cpf?: SortOrder
     crm?: SortOrder
     especialidade?: SortOrder
@@ -6622,6 +6649,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     cpf?: SortOrder
     crm?: SortOrder
     especialidade?: SortOrder
@@ -6633,6 +6661,7 @@ export namespace Prisma {
     id?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     cpf?: SortOrder
     crm?: SortOrder
     especialidade?: SortOrder
@@ -7092,6 +7121,7 @@ export namespace Prisma {
   export type FisioterapeutaCreateWithoutConsultasInput = {
     nome: string
     email: string
+    senha: string
     cpf: string
     crm: string
     especialidade: string
@@ -7103,6 +7133,7 @@ export namespace Prisma {
     id?: number
     nome: string
     email: string
+    senha: string
     cpf: string
     crm: string
     especialidade: string
@@ -7161,6 +7192,7 @@ export namespace Prisma {
   export type FisioterapeutaUpdateWithoutConsultasInput = {
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     crm?: StringFieldUpdateOperationsInput | string
     especialidade?: StringFieldUpdateOperationsInput | string
@@ -7172,6 +7204,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     crm?: StringFieldUpdateOperationsInput | string
     especialidade?: StringFieldUpdateOperationsInput | string

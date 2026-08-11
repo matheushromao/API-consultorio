@@ -37,15 +37,22 @@ const router = Router();
  *             required:
  *               - nome
  *               - email
+ *               - senha
+ *               - cpf
+ *               - crm
  *               - especialidade
  *             properties:
  *               nome:
  *                 type: string
  *               email:
  *                 type: string
- *               especialidade:
+ *               senha:
+ *                 type: string
+ *               cpf:
  *                 type: string
  *               crm:
+ *                 type: string
+ *               especialidade:
  *                 type: string
  *     responses:
  *       201:
@@ -124,9 +131,9 @@ router.get(
  *                 type: string
  *               email:
  *                 type: string
- *               especialidade:
+ *               crm:
  *                 type: string
- *               telefone:
+ *               especialidade:
  *                 type: string
  *     responses:
  *       200:

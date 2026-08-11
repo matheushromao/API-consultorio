@@ -145,6 +145,7 @@ exports.Prisma.FisioterapeutaScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
   email: 'email',
+  senha: 'senha',
   cpf: 'cpf',
   crm: 'crm',
   especialidade: 'especialidade',
